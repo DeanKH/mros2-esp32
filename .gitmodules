@@ -1,3 +1,9 @@
 [submodule "mros2"]
 	path = mros2
 	url = https://github.com/mROS-base/mros2.git
+[submodule "workspace/m5stack_sample/components/M5Unified"]
+	path = workspace/m5stack_sample/components/M5Unified
+	url = https://github.com/m5stack/M5Unified
+[submodule "workspace/m5stack_sample/components/M5GFX"]
+	path = workspace/m5stack_sample/components/M5GFX
+	url = https://github.com/m5stack/M5GFX.git
