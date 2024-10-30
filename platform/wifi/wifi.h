@@ -7,8 +7,8 @@
 
 #include "esp_wifi_types.h"
 
-#define ESP_WIFI_SSID "SSID"
-#define ESP_WIFI_PASS "PASS"
+// #define ESP_WIFI_SSID "SSID"
+// #define ESP_WIFI_PASS "PASS"
 #define ESP_MAXIMUM_RETRY 3
 #define ESP_WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WPA2_PSK
 

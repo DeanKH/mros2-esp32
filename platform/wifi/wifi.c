@@ -17,7 +17,15 @@
 
 #include "lwip/err.h"
 #include "lwip/ip_addr.h"
+#ifdef USE_WIFI
+#ifndef ESP_WIFI_SSID
+#error "Please define ESP_WIFI_SSID"
+#endif
 
+#ifndef ESP_WIFI_PASS
+#error "Please define ESP_WIFI_PASS"
+#endif
+#endif
 static EventGroupHandle_t s_wifi_event_group;
 static const char *TAG = "wifi station";
 static int s_retry_num = 0;

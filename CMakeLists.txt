@@ -44,6 +44,22 @@ idf_component_register(
         INCLUDE_DIRS ${INCS}
         REQUIRES nvs_flash esp_wifi)
 
+option(USE_WIFI "Use WiFi to communication. Use Ethernet if OFF" ON)
+if(USE_WIFI)
+        if("$ENV{ESP_WIFI_SSID}" STREQUAL "")
+                message(FATAL_ERROR "Please set environment variable ESP_WIFI_SSID")
+        endif()
+        if("$ENV{ESP_WIFI_PASS}" STREQUAL "")
+                message(FATAL_ERROR "Please set environment variable ESP_WIFI_PASS")
+        endif()
+        # add definition ESP_WIFI_SSID and ESP_WIFI_PASS
+        target_compile_definitions(${COMPONENT_LIB} PRIVATE USE_WIFI)
+        target_compile_definitions(${COMPONENT_LIB} PRIVATE ESP_WIFI_SSID="$ENV{ESP_WIFI_SSID}")
+        target_compile_definitions(${COMPONENT_LIB} PRIVATE ESP_WIFI_PASS="$ENV{ESP_WIFI_PASS}")
+else()
+        message(FATAL_ERROR "Ethernet is not supported yet")
+endif()
+
 # Generate plaform/templates.hpp from mros2 application code
 ## You can add dir(s) in `--indir` if you have several dirs 
 ## that contain application code files
